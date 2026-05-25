@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Community Event Portal</title>
+
+    <!--Internal CSS-->
+    <style>
+
+        /*Styling using ID*/
+        #welcomeBanner{
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /*Styling using Class*/
+        .highlight{
+            background-color: orange;
+            font-weight: bold;
+            padding: 3px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,19 +37,41 @@
 
     </header>
 
-    <section>
+    <div id="welcomeBanner">
 
-        <!--Main Content Section-->
+        <h1>Welcome <span class="highlight">Deekshitha</span> to our Local Community Event Portal!</h1>
 
-        <main>
-            <section id="home"></section>
-            <section id="events"></section>
-            <section id="contact"></section>
-        </main>
+        <p>We're glad you're here to explore and participate in <span class="highlight">local community events</span>!</p>
 
-    </section>
+        <p>
+            <span style="color: red; font-weight:bold;">Special Offer: Register today and get free Event Tickets!</span>
+        </p>
+
+    </div>
+
+
+    <!--Main Content Section-->
+
+    <main>
+
+        <section id="home">
+            <p>Welcome to the home section of our Local Community Event Portal!</p>
+        </section>
+
+        <section id="events">
+            <p>Check out the latest community events happening in your area!</p>
+        </section>
+
+        <section id="contact">
+            <p>Get in touch with us to learn more about our community events.</p>
+        </section>
+
+    </main>
+
 
     <!--Footer Section of the Website-->
-    <footer></footer>
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
+    </footer>
 </body>
 </html>
