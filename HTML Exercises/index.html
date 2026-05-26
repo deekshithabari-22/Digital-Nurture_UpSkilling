@@ -28,6 +28,7 @@
             border: 3px solid black;
             border-radius: 10px;
             padding: 5px;
+            cursor: pointer;
         }
 
         #heading{
@@ -79,6 +80,12 @@
             color: green;
             font-weight: bold;
         }
+
+        #phoneMessage,
+        #feeDisplay,
+        #confirmation{
+            font-weight: bold;
+        }
     </style>
 
     <script>
@@ -88,6 +95,63 @@
 
             document.getElementById("confirmationMessage").innerHTML="Registration Successful! Thank you for registering for the event. We look forward to seeing you there!";
         }
+
+         // Phone Validation using onblur
+    function validatePhone(){
+
+        let phone=document.getElementById("phone").value;
+
+        if(phone.length!==10 || isNaN(phone)){
+            document.getElementById("phoneMessage").innerHTML=
+            "Enter a valid 10-digit phone number";
+
+            document.getElementById("phoneMessage").style.color="red";
+        }
+        else{
+            document.getElementById("phoneMessage").innerHTML=
+            "Valid Phone Number";
+
+            document.getElementById("phoneMessage").style.color="green";
+        }
+    }
+
+    // Display Event Fee using onchange
+    function showFee(){
+
+        let fee=document.getElementById("eventSelect").value;
+
+        if(fee!==""){
+            document.getElementById("feeDisplay").innerHTML=
+            "Event Fee: ₹"+fee;
+        }
+        else{
+            document.getElementById("feeDisplay").innerHTML="";
+        }
+    }
+
+    // Submit Confirmation using onclick
+    function showConfirmation(){
+
+        document.getElementById("confirmation").innerHTML=
+        "Feedback Submitted Successfully!";
+    }
+
+    // Enlarge Image using ondblclick
+    function enlargeImage(){
+
+        let image=document.getElementById("eventImage");
+
+        image.style.width="400px";
+    }
+
+    // Character Count using keyboard event
+    function countCharacters(){
+
+        let text=document.getElementById("feedback").value;
+
+        document.getElementById("charCount").innerHTML=text.length;
+    }
+
     </script>
 </head>
 <body>
@@ -261,6 +325,87 @@
                 <br><br>
 
                 <output id="confirmationMessage"></output>
+
+            </fieldset>
+
+        </form>
+
+        <h2 id="heading">Event Feedback Form</h2>
+
+        <form>
+
+            <fieldset>
+
+                <legend><b>Give Your Feedback</b></legend>
+
+                <!-- Phone Number Validation -->
+                <label for="phone">Phone Number:</label><br>
+
+                <input 
+                    type="text" 
+                    id="phone"
+                    placeholder="Enter 10-digit phone number"
+                    onblur="validatePhone()"
+                >
+
+                <p id="phoneMessage"></p>
+
+                <br>
+
+                <!-- Dropdown Fee Display -->
+                <label for="eventSelect">Select Event:</label><br>
+
+                <select id="eventSelect" onchange="showFee()">
+
+                    <option value="">Choose Event</option>
+                    <option value="500">Music Festival</option>
+                    <option value="300">Food Drive</option>
+                    <option value="400">Tree Plantation</option>
+                    <option value="600">Sports Meet</option>
+
+                </select>
+
+                <p id="feeDisplay"></p>
+
+                <br>
+
+                <!-- Double Click Image -->
+                <img 
+                    src="./images/event1.jfif"
+                    id="eventImage"
+                    width="200"
+                    ondblclick="enlargeImage()"
+                    alt="Event Image"
+                >
+
+                <p>Double-click the image to enlarge it.</p>
+
+                <br>
+
+                <!-- Feedback Textarea -->
+                <label for="feedback">Feedback:</label><br>
+
+                <textarea 
+                    id="feedback"
+                    rows="5"
+                    cols="40"
+                    placeholder="Enter your feedback..."
+                    onkeyup="countCharacters()"
+                ></textarea>
+
+                <p>
+                    Characters Count:
+                    <span id="charCount">0</span>
+                </p>
+
+                <br>
+
+                <!-- Submit Button -->
+                <button type="button" onclick="showConfirmation()">
+                    Submit Feedback
+                </button>
+
+                <p id="confirmation"></p>
 
             </fieldset>
 
