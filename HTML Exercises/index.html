@@ -21,6 +21,22 @@
             font-weight: bold;
             padding: 3px;
         }
+
+        .eventImage{
+            width:200px;
+            height: 150px;
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        #heading{
+            text-align: center;
+        }
+        
+        table{
+            margin: auto;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +76,61 @@
 
         <section id="events">
             <p>Check out the latest community events happening in your area!</p>
+            <!--Table with 2 rows and 3 columns for Event Gallery-->
+    <h1 id="heading">Community Event Gallery</h1>
+    <table>
+
+      <tr>
+       
+        <td>
+            <figure>
+                <img src="./images/event1.jfif" alt="Music Festival Event" title="Annual Music Festival" class="eventImage">
+                <figcaption>Music Festival 2025</figcaption>
+            </figure>
+        </td>
+
+        <td>
+            <figure>
+                <img src="./images/event2.jfif" alt="Food Donation Drive" title="Community Food Drive" class="eventImage">
+                <figcaption>Food Donation Campaign</figcaption>
+            </figure>
+        </td>
+
+        <td>
+            <figure>
+                <img src="./images/event3.jfif" alt="Tree Plantation Event" title="Green Earth Initiative" class="eventImage">
+                <figcaption>Tree Plantation Drive</figcaption>
+            </figure>
+        </td>
+
+      </tr>
+
+      <tr>
+
+        <td>
+            <figure>
+                <img src="./images/event4.jfif" alt="Sports Meet Event" title="Annual Sports Meet" class="eventImage">
+                <figcaption>Community Sports Meet</figcaption>
+            </figure>
+        </td>
+
+        <td>
+            <figure>
+                <img src="./images/event5.jfif" alt="Art Workshop Event" title="Art From Waste Event" class="eventImage">
+                <figcaption>Art and Craft Workshop</figcaption>
+            </figure>
+        </td>
+
+        <td>
+            <figure>
+                <img src="./images/event6.jfif" alt="Health Camp Event" title="Community Health Camp" class="eventImage">
+                <figcaption>Community Health Camp</figcaption>
+            </figure>
+        </td>
+
+      </tr>  
+
+    </table>
         </section>
 
         <section id="contact">
@@ -68,9 +139,10 @@
 
     </main>
 
+    <hr>
 
     <!--Footer Section of the Website-->
-    <footer>
+    <footer align="center">
         <p>&copy; 2026 Local Community Event Portal. All rights reserved.</p>
     </footer>
 </body>
