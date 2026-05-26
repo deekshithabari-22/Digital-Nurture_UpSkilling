@@ -37,7 +37,58 @@
         table{
             margin: auto;
         }
+
+        /* Form Styling */
+
+        form{
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        form label{
+            font-weight: bold;
+        }
+
+        form input,
+        form select,
+        form textarea{
+            width: 95%;
+            padding: 8px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        button{
+            background-color: teal;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: darkcyan;
+        }
+
+        output{
+            color: green;
+            font-weight: bold;
+        }
     </style>
+
+    <script>
+
+        function showMessage(event){
+            event.preventDefault();
+
+            document.getElementById("confirmationMessage").innerHTML="Registration Successful! Thank you for registering for the event. We look forward to seeing you there!";
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -135,6 +186,86 @@
 
         <section id="contact">
             <p>Get in touch with us to learn more about our community events.</p>
+            <h2 id="heading">Event Registration Form</h2>
+            <form id="eventForm" onsubmit="showMessage(event)">
+
+            <fieldset>
+
+                <legend><b>Register for an Event</b></legend>
+
+                <label for="name">Full Name:</label><br>
+
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name"
+                    placeholder="Enter your Full Name" 
+                    required 
+                    autofocus
+                >
+                <br><br>
+
+                <label for="email">Email Address:</label><br>
+
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email"
+                    placeholder="Enter your email" 
+                    required
+                >
+                <br><br>
+
+                <label for="date">Event Date:</label><br>
+
+                <input 
+                    type="date" 
+                    id="date" 
+                    name="date"
+                    required
+                >
+                <br><br>
+
+                <label for="eventType">Event Type:</label><br>
+
+                <select id="eventType" name="eventType" required>
+
+                    <option value="">Select an event type</option>
+
+                    <option value="music">Music Festival</option>
+                    <option value="food">Food Drive</option>
+                    <option value="tree">Tree Plantation</option>
+                    <option value="sports">Sports Meet</option>
+                    <option value="art">Art Workshop</option>
+                    <option value="health">Health Camp</option>
+
+                </select>
+
+                <br><br>
+
+                <label for="message">Message:</label><br>
+
+                <textarea 
+                    id="message" 
+                    name="message"
+                    rows="5" 
+                    cols="40" 
+                    placeholder="Enter your message here..." 
+                    required
+                ></textarea>
+
+                <br><br>
+
+                <button type="submit">Register</button>
+
+                <br><br>
+
+                <output id="confirmationMessage"></output>
+
+            </fieldset>
+
+        </form>
+
         </section>
 
     </main>
