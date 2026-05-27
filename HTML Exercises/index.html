@@ -101,6 +101,8 @@
 
             let phone=document.getElementById("phone").value;
 
+            console.log("Phone Number Entered: " + phone);
+
             if(phone.length!==10 || isNaN(phone)){
                 document.getElementById("phoneMessage").innerHTML=
                 "Enter a valid 10-digit phone number";
@@ -233,6 +235,8 @@
 
             let latitude = position.coords.latitude;
             let longitude = position.coords.longitude;
+
+            console.log("Latitude: " + latitude + ", Longitude: " + longitude);
 
             document.getElementById("locationResult").innerHTML =
 
