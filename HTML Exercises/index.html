@@ -97,60 +97,78 @@
         }
 
          // Phone Validation using onblur
-    function validatePhone(){
+        function validatePhone(){
 
-        let phone=document.getElementById("phone").value;
+            let phone=document.getElementById("phone").value;
 
-        if(phone.length!==10 || isNaN(phone)){
-            document.getElementById("phoneMessage").innerHTML=
-            "Enter a valid 10-digit phone number";
+            if(phone.length!==10 || isNaN(phone)){
+                document.getElementById("phoneMessage").innerHTML=
+                "Enter a valid 10-digit phone number";
 
-            document.getElementById("phoneMessage").style.color="red";
+                document.getElementById("phoneMessage").style.color="red";
+            }
+            else{
+                document.getElementById("phoneMessage").innerHTML=
+                "Valid Phone Number";
+
+                document.getElementById("phoneMessage").style.color="green";
+            }
         }
-        else{
-            document.getElementById("phoneMessage").innerHTML=
-            "Valid Phone Number";
 
-            document.getElementById("phoneMessage").style.color="green";
+        // Display Event Fee using onchange
+        function showFee(){
+
+            let fee=document.getElementById("eventSelect").value;
+
+            if(fee!==""){
+                document.getElementById("feeDisplay").innerHTML=
+                "Event Fee: ₹"+fee;
+            }
+            else{
+                document.getElementById("feeDisplay").innerHTML="";
+            }
         }
-    }
 
-    // Display Event Fee using onchange
-    function showFee(){
+        // Submit Confirmation using onclick
+        function showConfirmation(){
 
-        let fee=document.getElementById("eventSelect").value;
-
-        if(fee!==""){
-            document.getElementById("feeDisplay").innerHTML=
-            "Event Fee: ₹"+fee;
+            document.getElementById("confirmation").innerHTML=
+            "Feedback Submitted Successfully!";
         }
-        else{
-            document.getElementById("feeDisplay").innerHTML="";
+
+        // Enlarge Image using ondblclick
+        function enlargeImage(){
+
+            let image=document.getElementById("eventImage");
+
+            image.style.width="350px";
         }
-    }
 
-    // Submit Confirmation using onclick
-    function showConfirmation(){
+        // Character Count using keyboard event
+        function countCharacters(){
 
-        document.getElementById("confirmation").innerHTML=
-        "Feedback Submitted Successfully!";
-    }
+            let text=document.getElementById("feedback").value;
 
-    // Enlarge Image using ondblclick
-    function enlargeImage(){
+            document.getElementById("charCount").innerHTML=text.length;
+        }
 
-        let image=document.getElementById("eventImage");
+        // Video Ready Message using oncanplay
+        function videoReady(){
 
-        image.style.width="350px";
-    }
+            document.getElementById("videoMessage").innerHTML =
+            "Video ready to play!";
+        }
 
-    // Character Count using keyboard event
-    function countCharacters(){
+        // Warn before leaving unfinished form
+        window.onbeforeunload = function(){
 
-        let text=document.getElementById("feedback").value;
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
 
-        document.getElementById("charCount").innerHTML=text.length;
-    }
+            if(name !== "" || email !== ""){
+                return "You have unfinished form data. Are you sure you want to leave?";
+            }
+        };
 
     </script>
 </head>
@@ -192,60 +210,86 @@
         <section id="events">
             <p>Check out the latest community events happening in your area!</p>
             <!--Table with 2 rows and 3 columns for Event Gallery-->
-    <h1 id="heading">Community Event Gallery</h1>
-    <table>
+            <h1 id="heading">Community Event Gallery</h1>
+            <table>
 
-      <tr>
-       
-        <td>
-            <figure>
-                <img src="./images/musicFestival.jfif" alt="Music Festival Event" title="Annual Music Festival" class="eventImage">
-                <figcaption>Music Festival 2025</figcaption>
-            </figure>
-        </td>
+            <tr>
+            
+                <td>
+                    <figure>
+                        <img src="./images/musicFestival.jfif" alt="Music Festival Event" title="Annual Music Festival" class="eventImage">
+                        <figcaption>Music Festival 2025</figcaption>
+                    </figure>
+                </td>
 
-        <td>
-            <figure>
-                <img src="./images/foodDonation.jfif" alt="Food Donation Drive" title="Community Food Drive" class="eventImage">
-                <figcaption>Food Donation Campaign</figcaption>
-            </figure>
-        </td>
+                <td>
+                    <figure>
+                        <img src="./images/foodDonation.jfif" alt="Food Donation Drive" title="Community Food Drive" class="eventImage">
+                        <figcaption>Food Donation Campaign</figcaption>
+                    </figure>
+                </td>
 
-        <td>
-            <figure>
-                <img src="./images/treePlantation.jfif" alt="Tree Plantation Event" title="Green Earth Initiative" class="eventImage">
-                <figcaption>Tree Plantation Drive</figcaption>
-            </figure>
-        </td>
+                <td>
+                    <figure>
+                        <img src="./images/treePlantation.jfif" alt="Tree Plantation Event" title="Green Earth Initiative" class="eventImage">
+                        <figcaption>Tree Plantation Drive</figcaption>
+                    </figure>
+                </td>
 
-      </tr>
+            </tr>
 
-      <tr>
+            <tr>
 
-        <td>
-            <figure>
-                <img src="./images/sportsMeet.jfif" alt="Sports Meet Event" title="Annual Sports Meet" class="eventImage">
-                <figcaption>Community Sports Meet</figcaption>
-            </figure>
-        </td>
+                <td>
+                    <figure>
+                        <img src="./images/sportsMeet.jfif" alt="Sports Meet Event" title="Annual Sports Meet" class="eventImage">
+                        <figcaption>Community Sports Meet</figcaption>
+                    </figure>
+                </td>
 
-        <td>
-            <figure>
-                <img src="./images/artWorkshop.jfif" alt="Art Workshop Event" title="Art From Waste Event" class="eventImage">
-                <figcaption>Art and Craft Workshop</figcaption>
-            </figure>
-        </td>
+                <td>
+                    <figure>
+                        <img src="./images/artWorkshop.jfif" alt="Art Workshop Event" title="Art From Waste Event" class="eventImage">
+                        <figcaption>Art and Craft Workshop</figcaption>
+                    </figure>
+                </td>
 
-        <td>
-            <figure>
-                <img src="./images/healthCamp.jfif" alt="Health Camp Event" title="Community Health Camp" class="eventImage">
-                <figcaption>Community Health Camp</figcaption>
-            </figure>
-        </td>
+                <td>
+                    <figure>
+                        <img src="./images/healthCamp.jfif" alt="Health Camp Event" title="Community Health Camp" class="eventImage">
+                        <figcaption>Community Health Camp</figcaption>
+                    </figure>
+                </td>
 
-      </tr>  
+            </tr>  
 
-    </table>
+            </table>
+
+            <!-- Video Invite Section -->
+
+        <section id="videoInvite">
+
+            <h2 id="heading">Community Event Promo Video</h2>
+
+            <center>
+
+                <video 
+                    width="500"
+                    controls
+                    oncanplay="videoReady()"
+                >
+
+                    <source src="./images/eventPromo.mp4" type="video/mp4">
+
+                    Your browser does not support the video tag.
+
+                </video>
+
+                <p id="videoMessage" style="color:green; font-weight:bold;"></p>
+
+            </center>
+
+        </section>
         </section>
 
         <section id="contact">
