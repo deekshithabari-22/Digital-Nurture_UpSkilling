@@ -170,6 +170,36 @@
             }
         };
 
+        function savePreference(){
+
+            let selectedEvent =
+            document.getElementById("eventType").value;
+
+            localStorage.setItem("preferredEvent", selectedEvent);
+        }
+
+        // Load saved preference when page reloads
+        window.onload = function(){
+
+            let savedEvent =
+            localStorage.getItem("preferredEvent");
+
+            if(savedEvent){
+
+                document.getElementById("eventType").value =
+                savedEvent;
+            }
+        };
+
+        // Clear localStorage and sessionStorage
+        function clearPreferences(){
+
+            localStorage.clear();
+            sessionStorage.clear();
+
+            alert("Preferences Cleared!");
+        }
+
     </script>
 </head>
 <body>
@@ -335,7 +365,7 @@
 
                 <label for="eventType">Event Type:</label><br>
 
-                <select id="eventType" name="eventType" required>
+                <select id="eventType" name="eventType" onchange="savePreference()" required>
 
                     <option value="">Select an event type</option>
 
@@ -364,6 +394,12 @@
                 <br><br>
 
                 <button type="submit">Register</button>
+
+                <br><br>
+
+                <button type="button" onclick="clearPreferences()">
+                    Clear Preferences
+                </button>
 
                 <br><br>
 
