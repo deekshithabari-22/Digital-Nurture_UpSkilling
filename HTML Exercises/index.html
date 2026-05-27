@@ -200,6 +200,78 @@
             alert("Preferences Cleared!");
         }
 
+        // Find User Location
+        function findLocation(){
+
+            // Geolocation options
+            let options = {
+
+                enableHighAccuracy: true,
+                timeout: 20000,
+                maximumAge: 0
+            };
+
+            // Check browser support
+            if(navigator.geolocation){
+
+                navigator.geolocation.getCurrentPosition(
+
+                    showPosition,
+                    showError,
+                    options
+                );
+            }
+            else{
+
+                document.getElementById("locationResult").innerHTML =
+                "Geolocation is not supported by this browser.";
+            }
+        }
+
+        // Success Function
+        function showPosition(position){
+
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+
+            document.getElementById("locationResult").innerHTML =
+
+            "Latitude: " + latitude +
+            "<br>Longitude: " + longitude;
+        }
+
+        // Error Handling Function
+        function showError(error){
+
+            let message = "";
+
+            switch(error.code){
+
+                case error.PERMISSION_DENIED:
+
+                    message = "Location access denied by user.";
+                    break;
+
+                case error.POSITION_UNAVAILABLE:
+
+                    message = "Location information unavailable.";
+                    break;
+
+                case error.TIMEOUT:
+
+                    message = "Location request timed out.";
+                    break;
+
+                case error.UNKNOWN_ERROR:
+
+                    message = "An unknown error occurred.";
+                    break;
+            }
+
+            document.getElementById("locationResult").innerHTML =
+            message;
+        }
+
     </script>
 </head>
 <body>
@@ -294,6 +366,22 @@
             </tr>  
 
             </table>
+
+            <section id="locationSection">
+
+                <h2 id="heading">Find Nearby Events</h2>
+
+                <div style="text-align:center;">
+
+                    <button onclick="findLocation()">
+                        Find Nearby Events
+                    </button>
+
+                    <p id="locationResult"></p>
+
+                </div>
+
+            </section>
 
             <!-- Video Invite Section -->
 
