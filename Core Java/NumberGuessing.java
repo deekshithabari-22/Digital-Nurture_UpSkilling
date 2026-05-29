@@ -21,5 +21,7 @@ public class NumberGuessing {
         }
         System.out.println("Yes!! You've guessed it correctly, the number is: "+generatedNum);
         System.out.println("You've guessed it in "+cnt+" attempts");
+
+        sc.close();
    } 
 }

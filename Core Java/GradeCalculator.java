@@ -21,5 +21,7 @@ public class GradeCalculator {
         grade='F';
        }
        System.out.println("Grade for the marks  "+marks+" is :"+grade);
+
+       sc.close();
     }
 }

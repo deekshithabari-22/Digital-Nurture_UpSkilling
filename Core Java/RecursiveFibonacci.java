@@ -12,5 +12,7 @@ public class RecursiveFibonacci {
         int fibNum=getNthFibNum(n);
 
         System.out.println("The "+n+"th Fibonacci number is: "+fibNum);
+
+        sc.close();
    } 
 }

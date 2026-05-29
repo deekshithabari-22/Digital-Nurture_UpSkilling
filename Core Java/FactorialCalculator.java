@@ -9,5 +9,7 @@ public class FactorialCalculator {
             factorial*=(long)(i);
         }
         System.out.println("The factorial of the number "+num+" is :"+factorial);
+
+        sc.close();
     }
 }

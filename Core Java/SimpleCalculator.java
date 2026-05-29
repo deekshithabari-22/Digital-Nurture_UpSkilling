@@ -10,7 +10,7 @@ public class SimpleCalculator {
         System.out.println("Select operation: +, -, *, /");
         char operation=sc.next().charAt(0);
         double result=0;
-
+        sc.close();
         switch(operation){
             case '+':
                 result=num1+num2;
@@ -34,5 +34,7 @@ public class SimpleCalculator {
                 return;
         }
         System.out.println("Result: " + result);
+
+        
     }
 }
